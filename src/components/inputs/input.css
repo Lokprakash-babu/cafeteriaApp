@@ -1,0 +1,7 @@
+.forInput{
+    margin-bottom: 20px;
+}
+
+input:placeholder-shown{
+    border-color: none;
+}
