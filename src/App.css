@@ -1,0 +1,12 @@
+.app-bar .hamburger{
+  z-index: 2;
+}
+
+active{
+  background-color: rgb(236, 236, 236);
+  color:white;
+}
+
+.collapsed{
+  display: none;
+}
