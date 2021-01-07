@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import Inputs from './components/inputLayout/inputLayout'
-import PreviewLayout from './components/previewLayout/preview'
+import SignUp from './components/Signup/signUp';
+
 
 class App extends React.Component{
   constructor(props) {
@@ -28,18 +28,12 @@ class App extends React.Component{
 
     
     let fullName=document.getElementById('name').value;
-    
     let email=document.getElementById('mail').value;
-    
     let orgName=document.getElementById('org').value;
-    
     let id=document.getElementById('id').value;
-    
     let mobile=document.getElementById('mobile').value;
-
     let img=document.getElementById('photo');
 
-    
     let body={
       fullName,
       email,
@@ -88,15 +82,8 @@ class App extends React.Component{
 
   render(){
     return (
-        <div>
-          <div className="formClass">
-            <form id={'formSubmit'} onSubmit={this.checkSubmission} >
-              <Inputs change={this.changed}/>
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-
-          <PreviewLayout/>
+        <div className="container">
+          <SignUp checkSubmission={this.checkSubmission} changed={this.changed} />
         </div>
       );
   }
