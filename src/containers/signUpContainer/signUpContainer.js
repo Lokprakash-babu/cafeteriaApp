@@ -1,18 +1,17 @@
 import './signUpContainer.css';
 import React from 'react';
 import SignUp from '../../components/Signup/signUp';
-// import SignUp from './components/Signup/signUp';
-import { Route, Switch } from 'react-router-dom';
-
+import Modal from '../../components/modal/modal';
 
 class SignUpContainer extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
-  }
-
-  authFormValidation(){
-      console.log('validation');
+    this.state = {
+        isError: false,
+        user: false,
+        show: false,
+        userId:null
+      };
   }
 
   changed(e){
@@ -22,7 +21,6 @@ class SignUpContainer extends React.Component{
 
   checkSubmission=(event)=>{
     event.preventDefault();
-    console.log('verified', event);
     let reader=new FileReader();
     let fullName=document.getElementById('name').value;
     let email=document.getElementById('mail').value;
@@ -63,28 +61,40 @@ class SignUpContainer extends React.Component{
         return data.json();
       },
     ).then(
-      function(success){
-        // let data=JSON.parse(success)
+      (success)=>{
         console.log('success', success);
-      }
-    ).catch(
-      function(err){
-        console.error("error in posting the details",err);
+        if(success['userExist']){
+          alert('User already exist ');
+        }
+        else if(success['userExist']===false){
+          this.setState({
+            show:true,
+            userId:success['response']
+          });
+        }
+      },
+      (err)=>{
+        alert('Reduce the photo size to less than 36KB');
       }
     )
   }
 
-
+  closeModal=()=>{
+    this.setState({
+      show: false
+    })
+  }
   render(){
     return (
         <div className="container">
+          <Modal show={this.state.show} handleClose={this.closeModal}>
+            {`User successfully registered and the user id is  
+            "${this.state.userId}"`}
+          </Modal>
           <SignUp checkSubmission={this.checkSubmission} changed={this.changed} />
         </div>
       );
   }
-
 }
-
-
 
 export default SignUpContainer;

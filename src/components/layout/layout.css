@@ -1,0 +1,35 @@
+.card{
+    margin-top: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.imageSection{
+    height: 75%;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.priceSection, .nameSection{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px gray;
+    opacity: 0.5;
+}
+
+.buyNowSection{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 33%;
+    display: none;
+}
+
+

@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import SignUpContainer from './containers/signUpContainer/signUpContainer';
 import { Link, Route, Switch } from 'react-router-dom';
-
+import Menu from './components/menu/menu';
 
 function App() {
   
@@ -13,12 +13,13 @@ function App() {
           
           <ul className="app-bar-menu">
               <li><Link to="/" onClick={navItemClicked} className="active">Home</Link></li>
-              <li><Link to="/login" onClick={navItemClicked}>Login</Link></li>
+              <li><Link to="/menu" onClick={navItemClicked}>Menu</Link></li>
               <li><Link to="/signUp" onClick={navItemClicked}>Sign up</Link></li>
           </ul>
         </div>
           <main>
             <Switch>
+              <Route path="/menu" component={Menu}/>
               <Route path="/signUp" component={SignUpContainer} />
             </Switch>
           </main>

@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes, { func } from 'prop-types'
+import propTypes from 'prop-types'
 import './input.css';
 
 
@@ -53,9 +53,9 @@ function seeImage(e){
       }
 
 }
-function checkFile(){
-    document.getElementById("photo").click();
-}
+// function checkFile(){
+//     document.getElementById("photo").click();
+// }
 
 input.propTypes={
     name:propTypes.string.isRequired,
