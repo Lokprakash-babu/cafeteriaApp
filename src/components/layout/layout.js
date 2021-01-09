@@ -8,7 +8,7 @@ const Layout =(props)=>{
     return (
         <div className="card" onMouseEnter={e=>displayBuyNow(props.check)} onMouseLeave={e=>hideBuyNow(props.check)}>
             <div className={classname} id={props.check}>
-                <button>Buy Now</button>
+                <button onClick={e=>props.addItem(props.check)}>Add item</button>
             </div>
             <div className="imageSection" >
                 <img src={props.image} alt={props.name}/>

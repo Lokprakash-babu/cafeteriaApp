@@ -1,0 +1,12 @@
+.itemCard{
+    display: inline-block;
+    
+}
+
+.imageContainer{
+    width: 50%;
+}
+
+.dataContainer{
+    width: 50%;
+}
