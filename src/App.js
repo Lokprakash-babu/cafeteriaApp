@@ -4,6 +4,7 @@ import SignUpContainer from './containers/signUpContainer/signUpContainer';
 import paymentContainer from './containers/paymentContainer/paymentContainer';
 import { Link, Route, Switch } from 'react-router-dom';
 import Menu from './components/menu/menu';
+import Home from './components/home/home';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         </div>
           <main>
             <Switch>
+              <Route path='/' component={Home} exact/>
               <Route path="/menu" component={Menu}/>
               <Route path="/signUp" component={SignUpContainer} />
               <Route path="/payment" component={paymentContainer} />

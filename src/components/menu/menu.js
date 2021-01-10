@@ -69,7 +69,6 @@ class Menu extends React.Component{
     }
 
     showSideDrawer=()=>{
-        console.log(this.savedItem, this.handleQuantities);
         if(Object.keys(this.handleQuantities).length>0){
 
             this.setState({
@@ -77,12 +76,11 @@ class Menu extends React.Component{
             })
         }
         else{
-            alert("your cart is empty. Please add an item to see the cart")
+            alert("Your cart is empty. Please add an item to see the cart")
         }
     }
 
     handleBuyNow=()=>{
-        console.log("total amount", this.money);
         sessionStorage.setItem('money', this.money);
         this.setState({
             payment:true
