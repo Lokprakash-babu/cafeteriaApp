@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import SignUpContainer from './containers/signUpContainer/signUpContainer';
+import paymentContainer from './containers/paymentContainer/paymentContainer';
 import { Link, Route, Switch } from 'react-router-dom';
 import Menu from './components/menu/menu';
 
@@ -21,6 +22,7 @@ function App() {
             <Switch>
               <Route path="/menu" component={Menu}/>
               <Route path="/signUp" component={SignUpContainer} />
+              <Route path="/payment" component={paymentContainer} />
             </Switch>
           </main>
         </div>

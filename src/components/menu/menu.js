@@ -2,6 +2,8 @@ import React from 'react';
 import Card from '../card/card';
 import './menu.css';
 import Checkout from '../checkout/checkout';
+import { Redirect } from "react-router-dom";
+
 
 class Menu extends React.Component{
     items=[
@@ -49,22 +51,41 @@ class Menu extends React.Component{
     handleQuantities={};
 
     state={
-       show:false
+       show:false,
+       payment:false
     }
+
+    money=0;
 
     handleAddItemButton=(item)=>{
         if(this.handleQuantities[item]){
             this.handleQuantities[item]+=1;
+            this.money+=10
         }
         else{
+            this.money+=10
             this.handleQuantities[item]=1;
         }
     }
 
     showSideDrawer=()=>{
         console.log(this.savedItem, this.handleQuantities);
+        if(Object.keys(this.handleQuantities).length>0){
+
+            this.setState({
+                show:true
+            })
+        }
+        else{
+            alert("your cart is empty. Please add an item to see the cart")
+        }
+    }
+
+    handleBuyNow=()=>{
+        console.log("total amount", this.money);
+        sessionStorage.setItem('money', this.money);
         this.setState({
-            show:true
+            payment:true
         })
     }
 
@@ -75,9 +96,12 @@ class Menu extends React.Component{
         })
     }
     render(){
+        if(this.state.payment===true){
+            return <Redirect to="/payment"/>
+        }
         return( 
             <div className="menu">
-                <Checkout show={this.state.show} items={this.items} quantity={this.handleQuantities} close={this.handleClose}/>
+                <Checkout buy = {this.handleBuyNow} show={this.state.show} items={this.items} quantity={this.handleQuantities} close={this.handleClose}/>
                 <button onClick={this.showSideDrawer} className="showCart">Show Cart</button>
                 <div className="items">
                     <Card addItem={this.handleAddItemButton} items={this.items}/>

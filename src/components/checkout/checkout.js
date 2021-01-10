@@ -21,7 +21,7 @@ const Checkout = (props) =>{
                 </div>
                 <div className="buttons">
                     <button onClick={props.close}>Close</button>
-                    <button>Buy Now</button>
+                    <button onClick={props.buy}>Buy Now</button>
                 </div>
             </div>
             
