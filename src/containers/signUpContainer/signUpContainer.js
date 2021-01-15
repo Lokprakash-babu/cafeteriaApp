@@ -49,7 +49,7 @@ class SignUpContainer extends React.Component{
 
     console.log('body', body);
 
-    fetch('http://localhost:9000/testAPI', {
+    fetch('https://sleepy-eyrie-76701.herokuapp.com/', {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
