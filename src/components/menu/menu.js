@@ -6,6 +6,8 @@ import { Redirect } from "react-router-dom";
 
 
 class Menu extends React.Component{
+
+    //array which containes our items
     items=[
     
     {
@@ -46,8 +48,10 @@ class Menu extends React.Component{
     },
 ];
 
+    //items added to the cart
     savedItem=[]
 
+    //handles how many items are added 
     handleQuantities={};
 
     state={

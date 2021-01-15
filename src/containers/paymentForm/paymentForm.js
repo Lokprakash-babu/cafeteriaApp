@@ -3,31 +3,17 @@ import React, { Component } from "react";
 import './paymentForm.css';
 
 export default class PaymentForm extends Component {
-    visa={
-        color:"navy"
-    }
-    amex={
-        color:"blue"
-    }
-    masterCard={
-        color:"red"
-    }
-    discover={
-        color:"orange"
-    }
+
     handleClick(e){
         document.getElementById(1).style.display="none";
-        
         document.getElementById(2).style.display="none";
-        
         document.getElementById(3).style.display="none";
-        console.log(e.target.dataset.attr)
         document.getElementById(e.target.dataset.attr).style.display='block';
     }
   render(){
         return(
             <div className="paymentSection">
-                <p className="moneyText">Pay {sessionStorage.getItem('money')} pounds using: </p>
+                <p className="moneyText">Pay {sessionStorage.getItem('money')} points using: </p>
                 <div className="paymentName">
                     <div className="option" onClick={this.handleClick}  data-attr={1}>
                         <div className="images">

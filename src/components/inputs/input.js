@@ -42,7 +42,7 @@ const input=(props)=>{
 
     );
 }
-function seeImage(e){
+function seeImage(){
     let reader=new FileReader();
       let img=document.getElementById('photo');
 

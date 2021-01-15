@@ -11,7 +11,7 @@ const Items=(props)=>{
 
         
         <div className="itemCard">
-            {props.name}   x  {props.quantity}  = {price} Pounds
+            {props.name}   x  {props.quantity}  = {price} Points
         </div>
     )
 }
