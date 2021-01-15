@@ -71,7 +71,8 @@ class SignUpContainer extends React.Component{
   callAPI(body) {
 
     //making the post request
-    fetch('https://sleepy-eyrie-76701.herokuapp.com/', {
+    
+    fetch('https://thawing-meadow-06948.herokuapp.com/', {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
