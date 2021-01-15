@@ -55,7 +55,15 @@ class SignUpContainer extends React.Component{
       body['img']=e.target.result;
 
       //calling the function to make post request to the API endpoint we exposed. 
-      this.callAPI(body);
+      if(fullName.length<3){
+        this.setState({
+          loader:false
+        });
+        alert('Enter atleast three letters for name');
+      }
+      else{
+        this.callAPI(body);
+      }
     }
   }
 
